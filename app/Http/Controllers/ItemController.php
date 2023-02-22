@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreItemRequest;
-use App\Http\Requests\UpdateItemRequest;
+use App\Http\Requests\ItemRequest;
 use App\Http\Resources\ItemResource;
 use App\Models\Item;
 
@@ -14,7 +13,7 @@ class ItemController extends Controller
         return ItemResource::collection(Item::all());
     }
 
-    public function store(StoreItemRequest $request)
+    public function store(ItemRequest $request)
     {
         return ItemResource::make(Item::create($request->validated()));
     }
@@ -24,7 +23,7 @@ class ItemController extends Controller
         return ItemResource::make($item);
     }
 
-    public function update(StoreItemRequest $request, Item $item)
+    public function update(ItemRequest $request, Item $item)
     {
         $item->fill($request->validated())->save();
 
