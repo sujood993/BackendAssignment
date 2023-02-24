@@ -10,24 +10,35 @@ class ItemController extends Controller
 {
     public function index()
     {
-        return ItemResource::collection(Item::all());
+        $items = ItemResource::collection(Item::all());
+        return response()->json(['data' => $items], 200);
     }
 
     public function store(ItemRequest $request)
     {
-        return ItemResource::make(Item::create($request->validated()));
+        $item = Item::create($request->validated());
+        return response()->json(['data' => ItemResource::make($item)], 201);
     }
 
-    public function show(Item $item)
+    public function show($id)
     {
-        return ItemResource::make($item);
+
+        $item = Item::find($id);
+
+        if (!$item) {
+            return response()->json(['message' => 'Item Not Found.'], 404);
+        }
+        return response()->json(['data' => ItemResource::make($item)], 200);
     }
 
-    public function update(ItemRequest $request, Item $item)
+    public function update(ItemRequest $request, $id)
     {
+        $item = Item::find($id);
+        if (!$item) {
+            return response()->json(['message' => 'Item Not Found.'], 404);
+        }
         $item->fill($request->validated())->save();
-
-        return ItemResource::make($item);
+        return response()->json(['data' => ItemResource::make($item)], 200);
     }
 
 }
