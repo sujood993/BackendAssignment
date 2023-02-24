@@ -10,7 +10,8 @@ The `ItemController` is messy. Please use your best judgement to improve the cod
 is to identify the imperfect areas and improve them whilst keeping the backwards compatibility.
 
 #### New feature
-Please modify the project to add statistics for the wishlist items. Statistics should include:
+Please modify the project to add 
+for the wishlist items. Statistics should include:
 
 - total items count
 - average price of an item

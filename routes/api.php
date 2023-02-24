@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ItemController;
+use App\Http\Controllers\{ItemController,StatisticsController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +18,4 @@ Route::get('/items', [ItemController::class, 'index']);
 Route::post('/items', [ItemController::class, 'store']);
 Route::get('/items/{item}', [ItemController::class, 'show']);
 Route::put('/items/{item}', [ItemController::class, 'update']);
+Route::get('/statistics', StatisticsController::class);

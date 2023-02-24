@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use League\CommonMark\CommonMarkConverter;
+use Illuminate\Contracts\Validation\Validator;
 
 class ItemRequest extends FormRequest
 {
@@ -42,4 +43,6 @@ class ItemRequest extends FormRequest
             'provider' => parse_url($this->url, PHP_URL_HOST),
         ]);
     }
+
+
 }
