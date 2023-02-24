@@ -29,12 +29,14 @@ statistic should be displayed.
 Please write your answers to following questions.
 
 > **Please briefly explain your implementation of the new feature**  
->  
-> _..._
+I created an invokable controller for statistics.
+I created a statistics service containing a statistics function.
+use DB to get the statistics (avg, sum,count)
+Create CLI command add type option to specify which statistic by default  is all
+In the CLI command use the function that created in StatisticsService
 
 > **For the refactoring, would you change something else if you had more time?**  
->  
-> _..._
+ I think I refactored it to the best right
 
 ## Running the project
 This project requires a database to run. For the server part, you can use `php artisan serve`
